@@ -31,6 +31,17 @@ public class facebookCLI{
         String accessTokenString = input.nextLine();
         AccessToken at = new AccessToken(accessTokenString);
         facebook.setOAuthAccessToken(at);
-        facebook.postStatusMessage("This is a test post for my CPSC 353 final project.");
+
+	String inputString = "";
+	String post = "";
+        System.out.println("Type your post. Press Enter and type \"post\" when done.");	
+        while (true){
+		inputString = input.nextLine();
+		if (inputString.equals("post"))
+			break;
+		else
+			post += "\n" + inputString;
+	}
+	facebook.postStatusMessage(post);
         }
 }
